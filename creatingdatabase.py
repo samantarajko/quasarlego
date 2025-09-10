@@ -33,14 +33,12 @@ def create_lego_tables_only():
         except Error as e:
             raise RuntimeError(f"Failed to create UserQuasar table: {e}")
 
-        # Insert user Samanta and verify commit
         try:
             cursor.execute("INSERT INTO UserQuasar (name, password) VALUES (%s, %s)", ("Samanta", "123"))
             db.commit()
         except Error as e:
             raise RuntimeError(f"Failed to insert user Samanta: {e}")
 
-        # Retrieve Samanta's ID with check
         cursor.execute("SELECT user_id FROM UserQuasar WHERE name = %s", ("Samanta",))
         samanta_id = cursor.fetchone()
         if samanta_id is None:
@@ -62,7 +60,6 @@ def create_lego_tables_only():
         except Error as e:
             raise RuntimeError(f"Failed to create FranchiseQuasar table: {e}")
 
-        # Create CategoryQuasar table
         try:
             cursor.execute("""
             CREATE TABLE CategoryQuasar (
@@ -76,7 +73,6 @@ def create_lego_tables_only():
         except Error as e:
             raise RuntimeError(f"Failed to create CategoryQuasar table: {e}")
 
-        # Create LegoSetQuasar table
         try:
             cursor.execute("""
             CREATE TABLE LegoSetQuasar (
@@ -96,7 +92,6 @@ def create_lego_tables_only():
         except Error as e:
             raise RuntimeError(f"Failed to create LegoSetQuasar table: {e}")
 
-        # Insert franchise data with error check
         franchises = [
             ("Star Wars", "Famous sci-fi franchise", "USA", "George Lucas", samanta_id),
             ("Harry Potter", "Magical world theme", "UK", "J.K. Rowling", samanta_id),
@@ -113,7 +108,6 @@ def create_lego_tables_only():
         except Error as e:
             raise RuntimeError(f"Failed to insert franchise data: {e}")
 
-        # Insert category data with error check
         categories = [
             ("Space", "Space themed LEGO sets", samanta_id),
             ("Fantasy", "Fantasy themed LEGO sets", samanta_id),
