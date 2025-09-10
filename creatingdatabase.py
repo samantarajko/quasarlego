@@ -139,9 +139,14 @@ def create_lego_tables_only():
         lego_sets = [
             ("Millennium Falcon", 2021, 7541, 799.99, franchise_map["Star Wars"], category_map["Space"], samanta_id),
             ("Hogwarts Castle", 2024, 6020, 399.99, franchise_map["Harry Potter"], category_map["Fantasy"], samanta_id),
+            ("Diagon Alley", 2022, 5544, 449.99, franchise_map["Harry Potter"], category_map["Fantasy"], samanta_id),
+            ("Hogwarts Express", 2023, 5129, 499.99, franchise_map["Harry Potter"], category_map["Fantasy"], samanta_id),
+            ("Gringotts Wizarding Bank", 2023, 4803, 429.99, franchise_map["Harry Potter"], category_map["Fantasy"], samanta_id),
             ("Iron Man Armor", 2022, 1200, 149.99, franchise_map["Marvel"], category_map["Superheroes"], samanta_id),
             ("Bugatti Chiron", 2020, 3599, 349.99, franchise_map["Technic"], category_map["Vehicles"], samanta_id),
-            ("Fire Station", 2017, 400, 59.99, franchise_map["City"], category_map["City Life"], samanta_id)
+            ("Lamborghini Sián FKP 37", 2021, 3696, 379.99, franchise_map["Technic"], category_map["Vehicles"], samanta_id),
+            ("Police Station", 2021, 2923, 199.99, franchise_map["City"], category_map["City Life"], samanta_id),
+            ("Fire Station", 2020, 509, 69.99, franchise_map["City"], category_map["City Life"], samanta_id)
         ]
         try:
             cursor.executemany(
